@@ -1,7 +1,7 @@
 package com.example.project.service;
 
 import com.example.project.dto.GithubResponseDto;
-import com.example.project.feign.GithubClient;
+import com.example.project.client.GithubClient;
 import com.example.project.mapper.GithubResponseMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
