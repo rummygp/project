@@ -1,14 +1,14 @@
 package com.example.project.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Builder
-public record GithubDto(@JsonProperty("full_name") String fullName,
+public record GithubDto(@JsonAlias("full_name") String fullName,
                         String description,
-                        @JsonProperty("clone_url") String cloneUrl,
-                        @JsonProperty("stargazers_count") int stars,
-                        @JsonProperty("created_at") LocalDateTime createdAt) {
+                        @JsonAlias("clone_url") String cloneUrl,
+                        @JsonAlias("stargazers_count") int stars,
+                        @JsonAlias("created_at") LocalDateTime createdAt) {
 }
