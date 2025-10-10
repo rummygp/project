@@ -13,11 +13,10 @@ public class CustomErrorDecoder implements ErrorDecoder {
     public Exception decode(String methodKey, Response response) {
         return switch (response.status()) {
             case 404 -> {
-//                    new NotFoundException("Resource not found");
                 FeignException exception = feign.FeignException.errorStatus(methodKey, response);
                 yield new RetryableException (
                         response.status(),
-                        exception.getMessage(),
+                        "Repository could not be found on github",
                         response.request().httpMethod(),
                         exception,
                         50L,

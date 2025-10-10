@@ -4,6 +4,7 @@ import com.example.project.client.GithubClient;
 import com.example.project.dto.GithubResponseDto;
 import com.example.project.mapper.GithubResponseMapper;
 import com.example.project.model.GithubResponse;
+import com.example.project.repository.GithubRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,12 +20,13 @@ public class GithubServiceTest {
     private GithubClient githubClient;
     private GithubResponseMapper githubResponseMapper;
     private GithubService githubService;
+    private GithubRepository githubRepository;
 
     @BeforeEach
     void setUp() {
         this.githubClient = Mockito.mock(GithubClient.class);
         this.githubResponseMapper = Mappers.getMapper(GithubResponseMapper.class);
-        this.githubService = new GithubService(githubClient, githubResponseMapper);
+        this.githubService = new GithubService(githubClient, githubResponseMapper, githubRepository);
     }
 
     @Test
