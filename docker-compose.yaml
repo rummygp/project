@@ -1,0 +1,18 @@
+services:
+  app:
+    image: 'projec123:latest'
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://db:27017/project
+    ports:
+      - '8080:8080'
+
+  db:
+    image: 'mongo'
+    container_name: mongo-db
+    ports:
+      - '27017:27017'
+
+
